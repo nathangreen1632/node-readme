@@ -18,13 +18,13 @@ function renderLicenseBadge(license) {
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
   if (license === 'MIT') {
-    return 'https://opensource.org/licenses/MIT';
+    return 'https://www.opensource.org/licenses/MIT';
   } else if (license === 'Apache 2.0') {
-    return 'https://opensource.org/licenses/Apache-2.0';
+    return 'https://www.opensource.org/licenses/Apache-2.0';
   } else if (license === 'GPL 3.0') {
     return 'https://www.gnu.org/licenses/gpl-3.0';
   } else if (license === 'BSD 3') {
-    return 'https://opensource.org/licenses/BSD-3-Clause';
+    return 'https://www.opensource.org/licenses/BSD-3-Clause';
   } else {
     return '';
   }
@@ -37,8 +37,7 @@ function renderLicenseSection(license) {
     return '';
   } else {
     return `## License
-    This project is licensed under the ${license} license. Click [here](${renderLicenseLink(license)}) for more information
-    `;
+    This project is licensed under the ${license} license. Click [here](${renderLicenseLink(license)}) for more information.`;
   }
 }
 
@@ -76,8 +75,8 @@ function generateMarkdown(data) {
   ${renderLicenseSection(data.license)}
 
   ## Questions
-  If you have any questions, please feel free to contact me at ${data.email}. You can also find me on GitHub at [${data.github}](
-`;
+If you have any questions, please feel free to contact me at ${data.email}. You can also find me on GitHub at [${data.github}](https://github.com/${data.github}).`;
+
 }
 
 export default generateMarkdown;
