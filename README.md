@@ -32,3 +32,6 @@ This project is licensed under the MIT license. Click [here](https://opensource.
 
   ## Questions
 If you have any questions, please feel free to contact me at ngreen1632@gmail.com. You can also find me on GitHub at [nathangreen1632](https://github.com/nathangreen1632).
+
+  ## Link to README.md Video
+  [Watch the video on YouTube](https://youtu.be/RN_3VMiKtBQ)
