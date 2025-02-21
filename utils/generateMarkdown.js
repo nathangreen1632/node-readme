@@ -1,5 +1,3 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
 function renderLicenseBadge(license) {
   switch (license) {
     case 'MIT':
@@ -15,8 +13,6 @@ function renderLicenseBadge(license) {
   }
 }
 
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
 function renderLicenseLink(license) {
  switch (license) {
     case 'MIT':
@@ -32,54 +28,82 @@ function renderLicenseLink(license) {
   }
 }
 
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
 function renderLicenseSection(license) {
-  const licenseHeader = `## License`
   const licenseBody = `This project is licensed under the ${license} license. Click [here](${renderLicenseLink(license)}) for more information.`
   if (license === 'None') {
     return '';
   } else {
-    return `${licenseHeader.trim()}\n${licenseBody.trim()}`
+    return `${licenseBody.trim()}`
   }
 }
 
-// TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
   return `# ${data.title}
   ${renderLicenseBadge(data.license)}
 
-  ## Description
+  ## Overview
   ${data.description}
 
-  ## Table of Contents
-  - [Installation](#installation)
+  <details>
+    <summary>Table of Contents</summary>
+
+  - [Overview](#overview)
+  - [Features](#features)
+  - [Tech Stack](#tech-stack)
+  - [Project Structure](#project-structure)
+  - [Documentation](#documentation)
+  - [Setup & Installation](#setup--installation)
   - [Usage](#usage)
+  - [Video Walkthrough](#video-walkthrough)
+  - [Future Enhancements](#future-enhancements)
+  - [License](#license)
   - [Contributing](#contributing)
   - [Tests](#tests)
-  - [License](#license)
   - [Questions](#questions)
 
-  ## Installation
+  </details>
+
+  ### Features
+  ${data.features}
+
+ ### Tech Stack
+- ${Array.isArray(data.techStack)
+      ? data.techStack.join("\n - ")
+      : (data.techStack || "").split(",").map((item) => item.trim()).join("\n - ")}
+
+
+  ### Project Structure
+  \`\`\`
+  ${data.projectStructure}
+  \`\`\`
+
+  ### Documentation
+  [Project Documentation](${data.documentationLink})
+
+  ### Setup & Installation
   ${data.installation}
 
-  ## Usage
+  ### Usage
   ${data.usage}
 
-  ## License
-  ${data.license}
+  ### Video Walkthrough
+  [Watch the demo](${data.videoWalkthrough})
 
-  ## Contributing
-  ${data.contributing}
-
-  ## Tests
-  ${data.tests}
-
+  ### License
   ${renderLicenseSection(data.license)}
 
-  ## Questions
-If you have any questions, please feel free to contact me at ${data.email}. You can also find me on GitHub at [${data.github}](https://github.com/${data.github}).`;
+  ### Contributing
+  ${data.contributing}
 
+  ### Tests
+  ${data.tests}
+
+  ### Questions
+  For any questions, reach out to me on GitHub: [${data.github}](https://github.com/${data.github})
+  
+  ### Future Enhancements
+  ${data.futureEnhancements}
+`;
 }
 
 export default generateMarkdown;
